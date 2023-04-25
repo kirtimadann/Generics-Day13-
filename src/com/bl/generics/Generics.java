@@ -1,37 +1,49 @@
 package com.bl.generics;
 
-public class Generics<T> {
+public class Generics<T extends Comparable<T>> {
 
-    T x;
+    T x, y, z;
 
-    T y;
+    public Generics(T x, T y, T z) {
+        this.x = x;
+        this.y = y;
+        this.z = z;
 
-    T z;
+    }
 
-    public static void main(String[] args) {
+    public T maximum() {
 
-        Generics <Integer> obj1 = new Generics();
-        obj1.x = 30;
-        obj1.y = 12;
-        obj1.z = 6;
-
-        System.out.println(obj1.x.compareTo(obj1.y));
-        System.out.println(obj1.x.compareTo(obj1.z));
-        System.out.println(obj1.y.compareTo(obj1.z));
+        return Generics.maximum(x, y, z);
+    }
 
 
-      int max1 =  Math.max(obj1.x, obj1.y);
-        System.out.println(max1);
+    public static <T extends Comparable<T>> T maximum(T x, T y, T z) {
+        T max = x;
+        if (y.compareTo(max) > 0) {
 
-        int max2 =  Math.max(obj1.x, obj1.z);
-        System.out.println(max2);
+            max = y;
+        }
+        if (z.compareTo(max) > 0) {
+            max = z;
+        }
 
-        int max3 =  Math.max(obj1.y, obj1.z);
-        System.out.println(max3);
+        printMax(x, y, z, max);
 
-
+        return max; // returns the largest object
 
 
     }
 
+    private static <T extends Comparable<T>> void printMax(T x, T y, T z, T max) {
+        System.out.printf("Max of %s, %s and %s is %s\n", x, y, z, max);
+    }
+
+
+    public static void main(String[] args) {
+
+        Integer xInt = 13, yInt = 24, zInt = 55;
+        new Generics<>(xInt, yInt, zInt).maximum();
+    }
+
 }
+
