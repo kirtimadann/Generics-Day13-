@@ -10,7 +10,7 @@ public class Generics<T> {
 
     public static void main(String[] args) {
 
-        Generics<Integer> obj1 = new Generics();
+        Generics <Integer> obj1 = new Generics();
         obj1.x = 30;
         obj1.y = 12;
         obj1.z = 6;
