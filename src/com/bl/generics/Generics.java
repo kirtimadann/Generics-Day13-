@@ -41,9 +41,6 @@ public class Generics<T extends Comparable<T>> {
 
     public static void main(String[] args) {
 
-        Integer xInt = 13, yInt = 24, zInt = 55;
-        new Generics<>(xInt, yInt, zInt).maximum();
-
         Float xfFloat = 6.6f, yfFloat = 8.8f, zfFloat = 7.7f;
         new Generics<>(xfFloat, yfFloat, zfFloat).maximum();
 
