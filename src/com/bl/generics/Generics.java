@@ -2,50 +2,46 @@ package com.bl.generics;
 
 public class Generics<T extends Comparable<T>> {
 
-    T xf, yf, zf;
+    T xstr, ystr, zstr;
 
-    public Generics(T xf, T yf, T zf) {
-        this.xf = xf;
-        this.yf = yf;
-        this.zf = zf;
-
+    public Generics(T xstr, T ystr, T zstr) {
+        this.xstr = xstr;
+        this.ystr = ystr;
+        this.zstr = zstr;
     }
 
     public T maximum() {
 
-        return Generics.maximum(xf, yf, zf);
+        return Generics.maximum(xstr, ystr, zstr);
     }
 
 
-    public static <T extends Comparable<T>> T maximum(T xf, T yf, T zf) {
-        T max = xf;
-        if (yf.compareTo(max) > 0) {
+    public static <T extends Comparable<T>> T maximum(T xstr, T ystr, T zstr) {
+        T max = xstr;
+        if (ystr.compareTo(max) > 0) {
 
-            max = yf;
+            max = ystr;
         }
-        if (zf.compareTo(max) > 0) {
-            max = zf;
+        if (zstr.compareTo(max) > 0) {
+            max = zstr;
         }
 
-        printMax(xf, yf, zf, max);
+        printMax(xstr, ystr, zstr, max);
 
         return max; // returns the largest object
 
 
     }
 
-    private static <T extends Comparable<T>> void printMax(T xf, T yf, T zf, T max) {
-        System.out.printf("Max of %s, %s and %s is %s\n", xf, yf, zf, max);
+    private static <T extends Comparable<T>> void printMax(T xstr, T ystr, T zstr, T max) {
+        System.out.printf("Max of %s, %s and %s is %s\n", xstr, ystr, zstr, max);
     }
 
 
     public static void main(String[] args) {
 
-        Integer xInt = 13, yInt = 24, zInt = 55;
-        new Generics<>(xInt, yInt, zInt).maximum();
-
-        Float xfFloat = 6.6f, yfFloat = 8.8f, zfFloat = 7.7f;
-        new Generics<>(xfFloat, yfFloat, zfFloat).maximum();
+        String xStr = "pear", yStr = "apple", zStr = "orange";
+         new Generics(xStr, yStr, zStr).maximum();
 
     }
 
