@@ -2,40 +2,40 @@ package com.bl.generics;
 
 public class Generics<T extends Comparable<T>> {
 
-    T x, y, z;
+    T xf, yf, zf;
 
-    public Generics(T x, T y, T z) {
-        this.x = x;
-        this.y = y;
-        this.z = z;
+    public Generics(T xf, T yf, T zf) {
+        this.xf = xf;
+        this.yf = yf;
+        this.zf = zf;
 
     }
 
     public T maximum() {
 
-        return Generics.maximum(x, y, z);
+        return Generics.maximum(xf, yf, zf);
     }
 
 
-    public static <T extends Comparable<T>> T maximum(T x, T y, T z) {
-        T max = x;
-        if (y.compareTo(max) > 0) {
+    public static <T extends Comparable<T>> T maximum(T xf, T yf, T zf) {
+        T max = xf;
+        if (yf.compareTo(max) > 0) {
 
-            max = y;
+            max = yf;
         }
-        if (z.compareTo(max) > 0) {
-            max = z;
+        if (zf.compareTo(max) > 0) {
+            max = zf;
         }
 
-        printMax(x, y, z, max);
+        printMax(xf, yf, zf, max);
 
         return max; // returns the largest object
 
 
     }
 
-    private static <T extends Comparable<T>> void printMax(T x, T y, T z, T max) {
-        System.out.printf("Max of %s, %s and %s is %s\n", x, y, z, max);
+    private static <T extends Comparable<T>> void printMax(T xf, T yf, T zf, T max) {
+        System.out.printf("Max of %s, %s and %s is %s\n", xf, yf, zf, max);
     }
 
 
@@ -43,6 +43,10 @@ public class Generics<T extends Comparable<T>> {
 
         Integer xInt = 13, yInt = 24, zInt = 55;
         new Generics<>(xInt, yInt, zInt).maximum();
+
+        Float xfFloat = 6.6f, yfFloat = 8.8f, zfFloat = 7.7f;
+        new Generics<>(xfFloat, yfFloat, zfFloat).maximum();
+
     }
 
 }
